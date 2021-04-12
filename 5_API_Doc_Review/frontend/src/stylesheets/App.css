@@ -1,0 +1,36 @@
+.App {
+  display: flex;
+  flex-direction: row;
+  margin: 35px 10px 0px;
+}
+
+div#main-view {
+  flex-basis: 70%;
+}
+
+div#form-view {
+  flex-basis: 30%;
+}
+
+.bookshelf-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pagination-menu {
+  display: flex;
+  width: fit-content;
+  margin: 0px auto;
+  text-align: center;
+}
+
+
+.page-num {
+  display: inline-block;
+  margin: 0px 3px;
+}
+
+.page-num.active {
+  color: blue;
+  font-weight: bolder;
+}
