@@ -26,7 +26,7 @@ kill <PID>
 ### Step 1 - Create and Populate the database
 You will have your database already in place. In case you played around with table and data, you can anytime drop and recreate the database. Refer to the [first exercise's starter code](https://github.com/udacity/nd0044-c2-API-Development-and-Documentation-exercises/blob/master/1_Requests_Starter/README.md) again.
 
-#### Step 2 - Start the frontend server
+### Step 2 - Start the frontend server
 From the `frontend` folder, run the following commands to start the client: 
 ```
 npm install // only once to install dependencies
@@ -34,12 +34,12 @@ npm start
 ```
 By default, the frontend will run on `localhost:3000`. Close the terminal if you wish to stop the frontend server. 
 
-#### Step 3 - Complete the ToDos
+### Step 3 - Complete the ToDos
 Open the */backend/flaskr/__init__.py* file, and finish all the @TODOs. 
 
 There is no change in the frontend this time. 
 
-#### Step 4 - Start the backend server
+### Step 4 - Start the backend server
 In a new terminal, start your (backend) Flask server by running the command below:
 ```bash
 cd backend
@@ -48,7 +48,7 @@ export FLASK_ENV=development
 flask run
 ```
 
-#### Step 5 - Access the app
+### Step 5 - Access the app
 Now, run the app and test both the services:
 1. Backend (flask): http://127.0.0.1:5000/ (use CURL within the workspace)
 
