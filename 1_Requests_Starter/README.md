@@ -3,24 +3,48 @@ The instructions below are meant for the local setup only. The classroom workspa
 
 #### Pre-requisites
 * Developers using this project should already have Python3, pip and node installed on their local machines.
-* **Install dependeencies**<br>
-From the backend folder run `pip install requirements.txt`. All required packages are included in the requirements file. 
 
-
-## How to run the application
-
-### Step 1 - Initial setup
-1. Open a new terminal window. From within the project directory, run the below code once:
+* **Install dependencies**<br>
+From the backend folder run `pip3 install requirements.txt`. All required packages are included in the requirements file. In addition, you will need the following:
 ```
-export FLASK_APP=flaskr
-export FLASK_ENV=development
+pip3 install flask_sqlalchemy
+pip3 install flask_cors
+pip3 install flask --upgrade
+pip3 uninstall flask-socketio -y
 ```
 
-2. There is a setup script in the project directory. Open a terminal in this Workspace and run the script with:
+
+### Step 0: Start/Stop the PostgreSQL server
+```bash
+which postgres
+postgres --version
+# Start/stop
+pg_ctl -D /usr/local/var/postgres start
+pg_ctl -D /usr/local/var/postgres stop 
 ```
-bash setup.sh
+If it shows that the *port already occupied* error, run:
+```bash
+sudo su - 
+ps -ef | grep postmaster | awk '{print $2}'
+kill <PID> 
 ```
-The script installs the Python dependencies needed for this lab, starts the PostgreSQL service and executes the commands needed to set up the database. You should only need to run this script once.
+
+### Step 1 - Create and Populate the database
+1. Replace all occurances of the user `xyz` in the `/nd0044-c2-API-Development-and-Documentation-exercises/1_Requests_Starter/backend/books.psql` with your active username or `student`. We will run this .psql script. 
+
+2. In your terminal, navigate to the */nd0044-c2-API-Development-and-Documentation-exercises/1_Requests_Starter/backend/* directory, and run the following:
+```bash
+# Connect to the PostgreSQL
+psql postgres
+#View all databases
+\l
+# Create the database, create a user - `student`, grant all privileges to the student
+\i setup.sql
+# Exit the PostgreSQL prompt
+\q
+# Populate the bookshelf database and apply contraints
+psql -f books.psql -U student -d bookshelf
+```
 
 
 ### Step 2: Complete the ToDos and Start the backend server
