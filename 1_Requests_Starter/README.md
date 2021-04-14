@@ -78,8 +78,10 @@ By default, the frontend will run on `localhost:3000`. Close the terminal if you
 #### Running Tests
 If the current exercise needs testing, navigate to the backend folder and run the following commands: 
 ```
+psql postgres
 dropdb bookshelf_test
 createdb bookshelf_test
+\q
 psql bookshelf_test < books.psql
 python test_flaskr.py
 ```
