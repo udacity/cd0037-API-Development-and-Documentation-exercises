@@ -45,6 +45,7 @@ psql postgres
 # Populate the bookshelf database and apply contraints
 psql -f books.psql -U student -d bookshelf
 ```
+You can even drop the database and repopulate it, if needed. 
 
 
 ### Step 2: Complete the ToDos and Start the backend server

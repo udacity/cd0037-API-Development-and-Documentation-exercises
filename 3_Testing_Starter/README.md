@@ -1,82 +1,78 @@
-# The Great Bookshelf of Udacity
+# Exercise - Testing
 
-This project is a virtual bookshelf for Udacity students. Students are able to add their books to the bookshelf, give them a rating, update the rating and search through their book lists. As a part of the Fullstack Nanodegree, it serves as a practice module for lessons from Course 2: API Development and Documentation. By completing this project, students learn and apply their skills structuring and implementing well formatted API endpoints that leverage knowledge of HTTP and API development best practices. 
-
-All backend code follows [PEP8 style guidelines](https://www.python.org/dev/peps/pep-0008/). 
-
-## Student Guidelines
-
-Hello students! You'll use this base in various workspaces throughout the course to build the project incrementally as you expand your skills. At each stage, there will be various 'TODO's marked for you to complete. You'll also notice some TODOs in the frontend section. You should referene those sections for formatting your endpoints and responses, and update the frontend to match the endpoints you choose and the programmed behavior. 
-
-You should feel free to expand on the project in any way you can dream up to extend your skills. For instance, you could add additional book information to each entry or create individual book views including more information about the book, your thoughts or when you completed it. 
-
-## Getting Started
-
-### Pre-requisites and Local Development 
-Developers using this project should already have Python3, pip and node installed on their local machines.
-
-#### Backend
-
-From the backend folder run `pip install requirements.txt`. All required packages are included in the requirements file. 
-
-To run the application run the following commands: 
+In this stage of the app you'll be working in `backend/test_flaskr.py`. Read the inline ToDo comments in the file. In order to run your code, open a new terminal and run: 
 ```
-export FLASK_APP=flaskr
-export FLASK_ENV=development
-flask run
+cd backend
+python test_flaskr.py
+``` 
+The output will looks as: 
+
+```
+-------------------
+Ran 0 tests in 0.000s
+OK
+```
+### `__init__.py`
+
+Also make sure you read over `/backend/flaskr/__init__.py` file to understand how the solution code is structured. It is an updated file as compared to the last exercise on writing PATCH, POST and DELETE requests. For the current exercise, **no** changes are required in the `__init__.py` file. 
+
+### ToDo - Writing Your Tests
+**Write at least two tests for each endpoint - one each for success and error behavior.** To get started, write tests for the *GET /books* endpoint. 
+
+Feel free to write additional tests for nuanced functionality, such as adding a book without a rating, etc. **Since there are four routes currently, you should have at least eight tests.** 
+
+### Start the Application
+### Step 0: Start/Stop the PostgreSQL server
+```bash
+# Start/stop
+pg_ctl -D /usr/local/var/postgres start
+pg_ctl -D /usr/local/var/postgres stop 
+```
+If it shows that the *port already occupied* error, run:
+```bash
+sudo su - 
+ps -ef | grep postmaster | awk '{print $2}'
+kill <PID> 
 ```
 
-These commands put the application in development and directs our application to use the `__init__.py` file in our flaskr folder. Working in development mode shows an interactive debugger in the console and restarts the server whenever changes are made. If running locally on Windows, look for the commands in the [Flask documentation](http://flask.pocoo.org/docs/1.0/tutorial/factory/).
 
-The application is run on `http://127.0.0.1:5000/` by default and is a proxy in the frontend configuration. 
+### Step 1 - Create and Populate the database
+You will have your database already in place. In case you played around with table and data, you can anytime drop and recreate the database. Refer to the [first exercise's starter code](https://github.com/udacity/nd0044-c2-API-Development-and-Documentation-exercises/blob/master/1_Requests_Starter/README.md) again.
 
-#### Frontend
 
-From the frontend folder, run the following commands to start the client: 
+### Step 2 - Start the frontend server
+From the `frontend` folder, run the following commands to start the client: 
 ```
 npm install // only once to install dependencies
 npm start 
 ```
 
-By default, the frontend will run on localhost:3000. 
+#### Step 3: Complete the ToDos
+**Note** that once you run the test to delete a particular book, it will delete that book (book_id) from the database. 
 
-### Tests
-In order to run tests navigate to the backend folder and run the following commands: 
+Therefore the same test won't pass again. You can re-run the particular delete book **test with a different book_id**. For your reference, the database has the following book_ids: `[1,2,3,6,7,8,9,10,11,12,13,14,15,16]`
 
+
+#### Step 4: Start the backend server
+In a new terminal, start your (backend) Flask server by running the command below:
 ```
-dropdb bookshelf_test
-createdb bookshelf_test
-psql bookshelf_test < books.psql
+cd backend
+export FLASK_APP=flaskr
+export FLASK_ENV=development
+flask run
+```
+#### Step 5: Test
+Again, open a new terminal, and run:
+```
+cd backend
 python test_flaskr.py
 ```
 
-The first time you run the tests, omit the dropdb command. 
+## Troubleshoot
+1. `AssertionError: 422 != 200` <br> You are trying to delete a book that does not exists in the database.
 
-All tests are kept in that file and should be maintained as updates are made to app functionality. 
+2. `flask.cli.NoAppException` <br> You are running the flask application from the wrong folder. Make sure to run  `flask run` command inside the "backend" folder. 
 
 
-## API Reference
-
-### Getting Started
-- Base URL: At present this app can only be run locally and is not hosted as a base URL. The backend app is hosted at the default, `http://127.0.0.1:5000/`, which is set as a proxy in the frontend configuration. 
-- Authentication: This version of the application does not require authentication or API keys. 
-
-### Error Handling
-- Response codes
-- Messages
-- Error types
-### Endpoints 
-- Organized by resource
-- Include each endpoint
-- Sample request 
-- Arguments including data types
-- Response object including status codes and data types 
-
-## Deployment N/A
-
-## Authors
-Yours truly, Coach Caryn 
-
-## Acknowledgements 
-The awesome team at Udacity and all of the students, soon to be full stack extraordinaires! 
+3. `FATAL:  password authentication failed for user` <br> The database credentials in the `test_flask.py` and `models.py` are not correct. For the workspace, the default username/password is `student/student`. Whereas, for the local implementation, it's `postgres/postgres`.
 
