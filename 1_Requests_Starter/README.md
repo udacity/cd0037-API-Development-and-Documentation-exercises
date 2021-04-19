@@ -16,6 +16,7 @@ pip3 uninstall flask-socketio -y
 
 
 ### Step 0: Start/Stop the PostgreSQL server
+Mac users can follow the commands below:
 ```bash
 which postgres
 postgres --version
@@ -23,6 +24,15 @@ postgres --version
 pg_ctl -D /usr/local/var/postgres start
 pg_ctl -D /usr/local/var/postgres stop 
 ```
+Windows users can follow the commands below:
+- Find the database directory, it should be something like that: *C:\Program Files\PostgreSQL\13.2\data*
+- Then in the command line execute the filllowing command: 
+```bash
+pg_ctl -D "C:\Program Files\PostgreSQL\13.2\data" start
+# to stop the server:
+pg_ctl -D "C:\Program Files\PostgreSQL\13.2\data" stop
+```
+
 If it shows that the *port already occupied* error, run:
 ```bash
 sudo su - 
