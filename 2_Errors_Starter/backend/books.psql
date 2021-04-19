@@ -7,6 +7,7 @@
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SELECT pg_catalog.set_config('search_path', '', false);
@@ -20,8 +21,9 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: books; Type: TABLE; Schema: public; Owner: student
+-- Name: books; Type: TABLE; Schema: public; Owner: xyz
 --
+DROP TABLE IF EXISTS public.books CASCADE;
 
 CREATE TABLE public.books (
     id integer NOT NULL,
@@ -31,11 +33,12 @@ CREATE TABLE public.books (
 );
 
 
-ALTER TABLE public.books OWNER TO student;
+ALTER TABLE public.books OWNER TO xyz;
 
 --
--- Name: books_id_seq; Type: SEQUENCE; Schema: public; Owner: student
+-- Name: books_id_seq; Type: SEQUENCE; Schema: public; Owner: xyz
 --
+DROP SEQUENCE IF EXISTS public.books_id_seq CASCADE;
 
 CREATE SEQUENCE public.books_id_seq
     AS integer
@@ -46,24 +49,24 @@ CREATE SEQUENCE public.books_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.books_id_seq OWNER TO student;
+ALTER TABLE public.books_id_seq OWNER TO xyz;
 
 --
--- Name: books_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: student
+-- Name: books_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: xyz
 --
 
 ALTER SEQUENCE public.books_id_seq OWNED BY public.books.id;
 
 
 --
--- Name: books id; Type: DEFAULT; Schema: public; Owner: student
+-- Name: books id; Type: DEFAULT; Schema: public; Owner: xyz
 --
 
 ALTER TABLE ONLY public.books ALTER COLUMN id SET DEFAULT nextval('public.books_id_seq'::regclass);
 
 
 --
--- Data for Name: books; Type: TABLE DATA; Schema: public; Owner: student
+-- Data for Name: books; Type: TABLE DATA; Schema: public; Owner: xyz
 --
 
 COPY public.books (id, title, author, rating) FROM stdin;
@@ -87,14 +90,14 @@ COPY public.books (id, title, author, rating) FROM stdin;
 
 
 --
--- Name: books_id_seq; Type: SEQUENCE SET; Schema: public; Owner: student
+-- Name: books_id_seq; Type: SEQUENCE SET; Schema: public; Owner: xyz
 --
 
 SELECT pg_catalog.setval('public.books_id_seq', 22, true);
 
 
 --
--- Name: books books_pkey; Type: CONSTRAINT; Schema: public; Owner: student
+-- Name: books books_pkey; Type: CONSTRAINT; Schema: public; Owner: xyz
 --
 
 ALTER TABLE ONLY public.books
@@ -104,4 +107,3 @@ ALTER TABLE ONLY public.books
 --
 -- PostgreSQL database dump complete
 --
-

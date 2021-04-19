@@ -5,7 +5,11 @@ The instructions below are meant for the local setup only. The classroom workspa
 * Developers using this project should already have Python3, pip and node installed on their local machines.
 
 * **Install dependencies**<br>
-From the backend folder run `pip3 install requirements.txt`. All required packages are included in the requirements file. In addition, you will need the following:
+From the backend folder run 
+```bash
+pip3 install -r requirements.txt
+``` 
+All required packages are included in the requirements file. In addition, you will need the following:
 ```
 pip3 uninstall flask-socketio -y
 ```
@@ -27,10 +31,11 @@ kill <PID>
 ```
 
 ### Step 1 - Create and Populate the database
-1. Replace all occurances of the user `xyz` in the `/nd0044-c2-API-Development-and-Documentation-exercises/1_Requests_Starter/backend/books.psql` with your active username or `student`. We will run this .psql script. 
+1. Replace all occurances of the user `xyz` in the `/nd0044-c2-API-Development-and-Documentation-exercises/1_Requests_Starter/backend/books.psql` with your active username/`postgres`/`student`. We will run this .psql script later. 
 
 2. In your terminal, navigate to the */nd0044-c2-API-Development-and-Documentation-exercises/1_Requests_Starter/backend/* directory, and run the following:
 ```bash
+cd nd0044-c2-API-Development-and-Documentation-exercises/1_Requests_Starter/backend
 # Connect to the PostgreSQL
 psql postgres
 #View all databases
@@ -39,10 +44,16 @@ psql postgres
 \i setup.sql
 # Exit the PostgreSQL prompt
 \q
-# Populate the bookshelf database and apply contraints
+```
+
+
+3. **Populate the bookshelf database**<br>
+Populate the bookshelf database and apply contraints
+```bash
+# Mac users
 psql -f books.psql -U student -d bookshelf
 ```
-You can even drop the database and repopulate it, if needed. 
+You can even drop the database and repopulate it, if needed, using the commands above. 
 
 
 ### Step 2: Complete the ToDos and Start the backend server

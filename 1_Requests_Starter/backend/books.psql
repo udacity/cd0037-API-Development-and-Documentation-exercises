@@ -23,6 +23,7 @@ SET default_with_oids = false;
 --
 -- Name: books; Type: TABLE; Schema: public; Owner: xyz
 --
+DROP TABLE IF EXISTS public.books CASCADE;
 
 CREATE TABLE public.books (
     id integer NOT NULL,
@@ -37,6 +38,7 @@ ALTER TABLE public.books OWNER TO xyz;
 --
 -- Name: books_id_seq; Type: SEQUENCE; Schema: public; Owner: xyz
 --
+DROP SEQUENCE IF EXISTS public.books_id_seq CASCADE;
 
 CREATE SEQUENCE public.books_id_seq
     AS integer
