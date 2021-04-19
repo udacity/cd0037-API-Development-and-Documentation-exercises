@@ -7,9 +7,6 @@ The instructions below are meant for the local setup only. The classroom workspa
 * **Install dependencies**<br>
 From the backend folder run `pip3 install requirements.txt`. All required packages are included in the requirements file. In addition, you will need the following:
 ```
-pip3 install flask_sqlalchemy
-pip3 install flask_cors
-pip3 install flask --upgrade
 pip3 uninstall flask-socketio -y
 ```
 
