@@ -21,7 +21,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: books; Type: TABLE; Schema: public; Owner: xyz
+-- Name: books; Type: TABLE; Schema: public; Owner: student/postgres
 --
 DROP TABLE IF EXISTS public.books CASCADE;
 
@@ -33,10 +33,10 @@ CREATE TABLE public.books (
 );
 
 
-ALTER TABLE public.books OWNER TO xyz;
+ALTER TABLE public.books OWNER TO student;
 
 --
--- Name: books_id_seq; Type: SEQUENCE; Schema: public; Owner: xyz
+-- Name: books_id_seq; Type: SEQUENCE; Schema: public; Owner: student/postgres
 --
 DROP SEQUENCE IF EXISTS public.books_id_seq CASCADE;
 
@@ -49,24 +49,24 @@ CREATE SEQUENCE public.books_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.books_id_seq OWNER TO xyz;
+ALTER TABLE public.books_id_seq OWNER TO student;
 
 --
--- Name: books_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: xyz
+-- Name: books_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: student/postgres
 --
 
 ALTER SEQUENCE public.books_id_seq OWNED BY public.books.id;
 
 
 --
--- Name: books id; Type: DEFAULT; Schema: public; Owner: xyz
+-- Name: books id; Type: DEFAULT; Schema: public; Owner: student/postgres
 --
 
 ALTER TABLE ONLY public.books ALTER COLUMN id SET DEFAULT nextval('public.books_id_seq'::regclass);
 
 
 --
--- Data for Name: books; Type: TABLE DATA; Schema: public; Owner: xyz
+-- Data for Name: books; Type: TABLE DATA; Schema: public; Owner: student/postgres
 --
 
 COPY public.books (id, title, author, rating) FROM stdin;
@@ -90,14 +90,14 @@ COPY public.books (id, title, author, rating) FROM stdin;
 
 
 --
--- Name: books_id_seq; Type: SEQUENCE SET; Schema: public; Owner: xyz
+-- Name: books_id_seq; Type: SEQUENCE SET; Schema: public; Owner: student/postgres
 --
 
 SELECT pg_catalog.setval('public.books_id_seq', 22, true);
 
 
 --
--- Name: books books_pkey; Type: CONSTRAINT; Schema: public; Owner: xyz
+-- Name: books books_pkey; Type: CONSTRAINT; Schema: public; Owner: student/postgres
 --
 
 ALTER TABLE ONLY public.books

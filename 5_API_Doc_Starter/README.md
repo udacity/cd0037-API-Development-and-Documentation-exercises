@@ -11,7 +11,15 @@ Now, add a Getting Started section to your documentation. Remember, this should 
 
 ## Error Handling
 Now, add an Error Handling section to your documentation. It should include the format of the error responses the client can expect as well as which status codes you use.
-
+- Response codes
+- Messages
+- Error types
 
 ## Endpoint Library
 Now, add an Endpoint Library section to your documentation. Make sure that endpoints, methods and returned data are all clear. Consider including sample requests for clarity
+
+- Organized by resource
+- Include each endpoint
+- Sample request 
+- Arguments including data types
+- Response object including status codes and data types 

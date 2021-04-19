@@ -31,9 +31,11 @@ kill <PID>
 ```
 
 ### Step 1 - Create and Populate the database
-1. Replace all occurances of the user `xyz` in the `/nd0044-c2-API-Development-and-Documentation-exercises/1_Requests_Starter/backend/books.psql` with your active username/`postgres`/`student`. We will run this .psql script later. 
+1. **Verify the username in the PSQL script**<br>
+Replace all occurances of the user `xyz` in the `/nd0044-c2-API-Development-and-Documentation-exercises/1_Requests_Starter/backend/books.psql` with your active username/`postgres`/`student`. We will run this .psql script later. 
 
-2. In your terminal, navigate to the */nd0044-c2-API-Development-and-Documentation-exercises/1_Requests_Starter/backend/* directory, and run the following:
+2. **Create the database and a user**<br>
+In your terminal, navigate to the */nd0044-c2-API-Development-and-Documentation-exercises/1_Requests_Starter/backend/* directory, and run the following:
 ```bash
 cd nd0044-c2-API-Development-and-Documentation-exercises/1_Requests_Starter/backend
 # Connect to the PostgreSQL
@@ -47,13 +49,16 @@ psql postgres
 ```
 
 
-3. **Populate the bookshelf database**<br>
-Populate the bookshelf database and apply contraints
+3. **Create tables**<br>
+Onve your database is created, you can create tables (`bookshelf`) and apply contraints
 ```bash
 # Mac users
 psql -f books.psql -U student -d bookshelf
+# Linux users
+su - postgres bash -c "psql bookshelf < /path/to/exercise/backend/books.psql"
+
 ```
-You can even drop the database and repopulate it, if needed, using the commands above. 
+**You can even drop the database and repopulate it, if needed, using the commands above.** 
 
 
 ### Step 2: Complete the ToDos and Start the backend server
@@ -67,7 +72,7 @@ flask run
 ```
 These commands put the application in development and directs our application to use the `__init__.py` file in our flaskr folder. Working in development mode shows an interactive debugger in the console and restarts the server whenever changes are made. If running locally on Windows, look for the commands in the [Flask documentation](http://flask.pocoo.org/docs/1.0/tutorial/factory/).
 
-The application is run on `http://127.0.0.1:5000/` by default and is set as a proxy in the frontend configuration. Also, the current version of the application does not require authentication or API keys. 
+The application will run on `http://127.0.0.1:5000/` by default and is set as a proxy in the frontend configuration. Also, the current version of the application does not require authentication or API keys. 
 
 
 
@@ -87,23 +92,9 @@ By default, the frontend will run on `localhost:3000`. Close the terminal if you
 If the current exercise needs testing, navigate to the backend folder and run the following commands: 
 ```
 psql postgres
-dropdb bookshelf_test
-createdb bookshelf_test
+dropdb bookshelf
+createdb bookshelf
 \q
 psql bookshelf_test < books.psql
 python test_flaskr.py
 ```
-The first time you run the tests, omit the `dropdb` command. All tests are kept in that file and should be maintained as updates are made to app functionality. 
-
-
-#### Error Handling
-- Response codes
-- Messages
-- Error types
-
-#### Endpoints 
-- Organized by resource
-- Include each endpoint
-- Sample request 
-- Arguments including data types
-- Response object including status codes and data types 
