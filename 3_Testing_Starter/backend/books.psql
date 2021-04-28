@@ -41,7 +41,6 @@ ALTER TABLE public.books OWNER TO xyz;
 DROP SEQUENCE IF EXISTS public.books_id_seq CASCADE;
 
 CREATE SEQUENCE public.books_id_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE

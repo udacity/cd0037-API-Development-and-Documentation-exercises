@@ -75,7 +75,7 @@ psql postgres
 
 
 3. **Create tables**<br>
-Onve your database is created, you can create tables (`bookshelf`) and apply contraints
+Once your database is created, you can create tables (`bookshelf`) and apply contraints
 ```bash
 # Mac users
 psql -f books.psql -U student -d bookshelf
