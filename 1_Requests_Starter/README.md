@@ -4,6 +4,20 @@ The instructions below are meant for the local setup only. The classroom workspa
 #### Pre-requisites
 * Developers using this project should already have Python3, pip and node installed on their local machines.
 
+
+* **Start your virtual environment** 
+From the backend folder run
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+Windows users can run:
+```bash
+> py -3 -m venv venv
+> venv\Scripts\activate
+```
+
 * **Install dependencies**<br>
 From the backend folder run 
 ```bash
@@ -28,8 +42,9 @@ Windows users can follow the commands below:
 - Find the database directory, it should be something like that: *C:\Program Files\PostgreSQL\13.2\data*
 - Then in the command line execute the filllowing command: 
 ```bash
+# Start the server
 pg_ctl -D "C:\Program Files\PostgreSQL\13.2\data" start
-# to stop the server:
+# Stop the server
 pg_ctl -D "C:\Program Files\PostgreSQL\13.2\data" stop
 ```
 
