@@ -52,6 +52,23 @@ npm start
 
 Therefore the same test won't pass again. You can re-run the particular delete book **test with a different book_id**. For your reference, the database has the following book_ids: `[1,2,3,6,7,8,9,10,11,12,13,14,15,16]`
 
+Alternativley, you can repopulate the database anytime by running the following commands from the */nd0044-c2-API-Development-and-Documentation-exercises/3_Testing_Starter/backend/* folder:
+
+```bash
+# Linux users
+su - postgres bash -c "dropdb bookshelf"
+su - postgres bash -c "createdb bookshelf"
+su - postgres bash -c "psql bookshelf < /path/to/backend/books.psql"
+```
+
+```bash
+# Mac users - local workspace
+psql postgres
+dropdb bookshelf
+createdb bookshelf
+psql bookshelf_test < books.psql
+```
+
 
 #### Step 4: Start the backend server
 In a new terminal, start your (backend) Flask server by running the command below:
