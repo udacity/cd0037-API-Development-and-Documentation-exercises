@@ -50,7 +50,7 @@ npm start
 #### Step 3: Complete the ToDos
 **Note** that once you run the test to delete a particular book, it will delete that book (book_id) from the database. 
 
-Therefore the same test won't pass again. You can re-run the particular delete book **test with a different book_id**. For your reference, the database has the following book_ids: `[1,2,3,6,7,8,9,10,11,12,13,14,15,16]`
+Therefore the same test won't pass again. You can re-run the particular delete book **test with a different book_id**. For your reference, the database has the book_ids from `1` to `16`.
 
 Alternativley, you can repopulate the database anytime by running the following commands from the */nd0044-c2-API-Development-and-Documentation-exercises/3_Testing_Starter/backend/* folder:
 

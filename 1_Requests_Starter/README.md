@@ -1,4 +1,4 @@
-# Local Development 
+## Local Development 
 The instructions below are meant for the local setup only. The classroom workspace is already set for your to start practicing. 
 
 #### Pre-requisites
@@ -8,12 +8,10 @@ The instructions below are meant for the local setup only. The classroom workspa
 * **Start your virtual environment** 
 From the backend folder run
 ```bash
+# Mac users
 python3 -m venv venv
 source venv/bin/activate
-```
-
-Windows users can run:
-```bash
+# Windows users
 > py -3 -m venv venv
 > venv\Scripts\activate
 ```
@@ -21,10 +19,9 @@ Windows users can run:
 * **Install dependencies**<br>
 From the backend folder run 
 ```bash
+# All required packages are included in the requirements file. 
 pip3 install -r requirements.txt
-``` 
-All required packages are included in the requirements file. In addition, you will need the following:
-```
+# In addition, you will need to UNINSTALL the following:
 pip3 uninstall flask-socketio -y
 ```
 
@@ -40,14 +37,13 @@ pg_ctl -D /usr/local/var/postgres stop
 ```
 Windows users can follow the commands below:
 - Find the database directory, it should be something like that: *C:\Program Files\PostgreSQL\13.2\data*
-- Then in the command line execute the filllowing command: 
+- Then, in the command line, execute the folllowing command: 
 ```bash
 # Start the server
 pg_ctl -D "C:\Program Files\PostgreSQL\13.2\data" start
 # Stop the server
 pg_ctl -D "C:\Program Files\PostgreSQL\13.2\data" stop
 ```
-
 If it shows that the *port already occupied* error, run:
 ```bash
 sudo su - 
@@ -56,8 +52,8 @@ kill <PID>
 ```
 
 ### Step 1 - Create and Populate the database
-1. **Verify the username in the PSQL script**<br>
-Replace all occurances of the user `xyz` in the `/nd0044-c2-API-Development-and-Documentation-exercises/1_Requests_Starter/backend/books.psql` with your active username/`postgres`/`student`. We will run this .psql script later. 
+1. **Verify the database username**<br>
+Verify that the database user in the `/backend/books.psql`, `/backend/models.py`, and `/backend/test_flaskr.py` files must be either the `student` or `postgres` (default username). FYI, the classroom workspace uses the `student`/`student` user credentials, whereas, the local implementation can use the dafault `postgres` user without a password as well. (See the `/backend/setup.sql` for more details!)
 
 2. **Create the database and a user**<br>
 In your terminal, navigate to the */nd0044-c2-API-Development-and-Documentation-exercises/1_Requests_Starter/backend/* directory, and run the following:
@@ -114,11 +110,11 @@ By default, the frontend will run on `localhost:3000`. Close the terminal if you
 
 ## Additional information
 #### Running Tests
-If the current exercise needs testing, navigate to the backend folder and run the following commands: 
-```
+If any exercise needs testing, navigate to the `/backend` folder and run the following commands: 
+```bash
 psql postgres
-dropdb bookshelf
-createdb bookshelf
+dropdb bookshelf_test
+createdb bookshelf_test
 \q
 psql bookshelf_test < books.psql
 python test_flaskr.py
