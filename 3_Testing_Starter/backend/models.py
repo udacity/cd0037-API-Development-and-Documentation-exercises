@@ -25,7 +25,7 @@ def setup_db(app, database_path=database_path):
 
 
 """
-Movie
+Book
 
 """
 
