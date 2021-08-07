@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 import json
 from sqlalchemy.sql.schema import PrimaryKeyConstraint
 
-database_name = 'plants'
+database_name = 'plantsdb'
 # Feel free to remove the password argument from the below format() method
 database_path = "postgres://{}:{}@{}/{}".format('postgres', '', 'localhost:5432', database_name)
 db = SQLAlchemy()
