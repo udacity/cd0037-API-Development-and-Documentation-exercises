@@ -7,12 +7,12 @@ def create_app(test_config=None):
     # Include the first parameter: Here, __name__is the name of the current Python module.
     app = Flask(__name__)
 
-    @app.route('/')
+    @app.route("/")
     def hello_world():
-        return jsonify({'message':'HELLO, WORLD!'})
+        return jsonify({"message": "HELLO, WORLD!"})
 
-    @app.route('/smiley')
+    @app.route("/smiley")
     def smiley():
-        return ':)'
+        return ":)"
 
     return app
