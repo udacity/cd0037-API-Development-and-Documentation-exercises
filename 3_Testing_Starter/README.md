@@ -56,16 +56,16 @@ Alternativley, you can repopulate the database anytime by running the following 
 
 ```bash
 # Linux users
-su - postgres bash -c "dropdb bookshelf"
-su - postgres bash -c "createdb bookshelf"
-su - postgres bash -c "psql bookshelf < /path/to/backend/books.psql"
+su - postgres bash -c "dropdb bookshelf_test"
+su - postgres bash -c "createdb bookshelf_test"
+su - postgres bash -c "psql bookshelf_test < /path/to/backend/books.psql"
 ```
 
 ```bash
 # Mac users - local workspace
 psql postgres
-dropdb bookshelf
-createdb bookshelf
+dropdb bookshelf_test
+createdb bookshelf_test
 psql bookshelf_test < books.psql
 ```
 
