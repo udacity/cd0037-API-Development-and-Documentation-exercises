@@ -5,7 +5,7 @@ from flask_cors import CORS
 
 from models import setup_db, Book
 
-BOOKS_PER_SHELF = 87
+BOOKS_PER_SHELF = 8
 
 # @TODO: General Instructions
 #   - As you're creating endpoints, define them and then search for 'TODO' within the frontend to update the endpoints there.
