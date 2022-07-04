@@ -1,4 +1,4 @@
-from flask import Flask, request, abort, jsonify
+from flask import Flask, request, abort
 from flask_sqlalchemy import SQLAlchemy  # , or_
 from flask_cors import CORS
 
