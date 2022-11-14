@@ -1,5 +1,11 @@
 ## Local Development 
-The instructions below are meant for the local setup only. The classroom workspace is already set for your to start practicing. 
+# The instructions below are meant for the local setup only. The classroom workspace is already set for your to start practicing. 
+python3 -m venv venv
+source venv/bin/activate
+
+export FLASK_APP=flaskr
+export FLASK_ENV=development
+flask run
 
 #### Pre-requisites
 * Developers using this project should already have Python3, pip and node installed on their local machines.
