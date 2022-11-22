@@ -33,6 +33,14 @@ class BookTestCase(unittest.TestCase):
         """Executed after reach test"""
         pass
 
+    def test_get_paginated_books(self):
+        res = self.client().get('/books')
+        data = json.loads(res.data)
+
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(data['success'], True)
+        self.assertTrue(data['total_books'])
+        self.assertTrue(len(data['books']))
 
 # @TODO: Write at least two tests for each endpoint - one each for success and error behavior.
 #        You can feel free to write additional tests for nuanced functionality,
