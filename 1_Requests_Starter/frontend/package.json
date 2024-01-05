@@ -12,7 +12,7 @@
     "react-scripts": "3.0.1"
   },
   "scripts": {
-    "start": "node node_modules/react-scripts/scripts/start.js",
+    "start": "set NODE_OPTIONS=--openssl-legacy-provider&& react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
